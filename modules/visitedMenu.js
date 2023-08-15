@@ -1,18 +1,18 @@
 const links = document.querySelectorAll('.links li');
 
-function resetLinks() {
+const resetLinks = () => {
   links.forEach((li) => {
     li.classList.remove('active');
   });
-}
+};
 
-function initVisitedMenu() {
+const initVisitedMenu = () => {
   links.forEach((li) => {
     li.addEventListener('click', () => {
       resetLinks();
       li.classList.add('active');
     });
   });
-}
-/* eslint-disable import/prefer-default-export */
-export { initVisitedMenu };
+};
+
+export default initVisitedMenu;

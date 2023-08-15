@@ -1,8 +1,7 @@
-/* eslint-disable no-unused-vars */
-import { bookManager } from './modules/bookManager.js';
-import { timeDisplayer } from './modules/dateModule.js';
-import { initVisitedMenu } from './modules/visitedMenu.js';
-import { DisplaySections } from './modules/display.js';
+import bookManager from './modules/bookManager.js';
+import timeDisplayer from './modules/dateModule.js';
+import initVisitedMenu from './modules/visitedMenu.js';
+import DisplaySections from './modules/display.js';
 
 class App {
   constructor() {
@@ -10,14 +9,15 @@ class App {
     this.init();
   }
 
-  init() {
+  init = () => {
     initVisitedMenu();
     bookManager.displayBooks();
     DisplaySections.singlePage();
     this.setupFormEventListeners();
+    timeDisplayer.updateTime();
   }
 
-  setupFormEventListeners() {
+  setupFormEventListeners = () => {
     this.form.addEventListener('submit', (e) => {
       e.preventDefault();
       bookManager.addNewData();
@@ -26,3 +26,4 @@ class App {
 }
 
 const app = new App();
+export default app;

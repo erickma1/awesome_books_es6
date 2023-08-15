@@ -6,17 +6,18 @@ class TimeDisplayer {
     this.startUpdating();
   }
 
-  startUpdating() {
+  startUpdating = () => {
     this.updateTime();
     setInterval(() => {
       this.updateTime();
     }, 1000);
   }
 
-  updateTime() {
+  updateTime = () => {
     const dt = DateTime.utc().toLocal();
     this.dateTimeElement.innerHTML = dt.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
   }
 }
-/* eslint-disable import/prefer-default-export */
-export const timeDisplayer = new TimeDisplayer();
+
+const timeDisplayer = new TimeDisplayer();
+export default timeDisplayer;

@@ -12,11 +12,11 @@ class BookManager {
     this.contactSection = document.getElementById('contact-container');
   }
 
-  updateData() {
+  updateData = () => {
     localStorage.setItem(this.storeKey, JSON.stringify(this.storeData));
   }
 
-  createBooks() {
+  createBooks = () => {
     let books = '';
     for (let i = 0; i < this.storeData.length; i += 1) {
       books += `
@@ -32,7 +32,7 @@ class BookManager {
     return books;
   }
 
-  displayBooks() {
+  displayBooks = () => {
     this.listOfBooks.innerHTML = `
       <p>
         ${this.createBooks()}
@@ -47,7 +47,7 @@ class BookManager {
     });
   }
 
-  addNewData() {
+  addNewData = () => {
     const title = document.querySelector('.title');
     const author = document.querySelector('.author');
     const book = {
@@ -61,11 +61,12 @@ class BookManager {
     author.value = '';
   }
 
-  removeBook(i) {
+  removeBook = (i) => {
     this.storeData.splice(i, 1);
     this.updateData();
     this.displayBooks();
   }
 }
-/* eslint-disable import/prefer-default-export */
-export const bookManager = new BookManager();
+
+const bookManager = new BookManager();
+export default bookManager;

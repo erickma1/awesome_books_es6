@@ -33,5 +33,6 @@ class Displaysections {
     });
   };
 }
-/* eslint-disable import/prefer-default-export */
-export const DisplaySections = new Displaysections();
+
+const DisplaySections = new Displaysections();
+export default DisplaySections;
