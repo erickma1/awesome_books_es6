@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { bookManager } from './modules/bookManager.js';
 import { timeDisplayer } from './modules/dateModule.js';
 import { initVisitedMenu } from './modules/visitedMenu.js';
@@ -5,6 +6,7 @@ import { DisplaySections } from './modules/display.js';
 
 class App {
   constructor() {
+    this.form = document.querySelector('form');
     this.init();
   }
 
@@ -16,12 +18,11 @@ class App {
   }
 
   setupFormEventListeners() {
-    const form = document.querySelector("form");
-    form.addEventListener("submit", (e) => {
+    this.form.addEventListener('submit', (e) => {
       e.preventDefault();
       bookManager.addNewData();
     });
   }
 }
 
-new App();
+const app = new App();

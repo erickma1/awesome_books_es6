@@ -14,5 +14,5 @@ function initVisitedMenu() {
     });
   });
 }
-
+/* eslint-disable import/prefer-default-export */
 export { initVisitedMenu };

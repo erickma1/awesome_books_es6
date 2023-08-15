@@ -1,16 +1,15 @@
 class BookManager {
   constructor() {
-    this.storeKey = "Added Books";
+    this.storeKey = 'Added Books';
     this.storeData = JSON.parse(localStorage.getItem(this.storeKey)) || [];
-    this.form = document.querySelector("form");
-    this.listOfBooks = document.querySelector(".container");
-    this.list = document.getElementById("list");
-    this.addNew = document.getElementById("addNew");
-    this.contact = document.getElementById("contact");
-    this.addNewSction = document.getElementById("add-book");
-    this.listSection = document.getElementById("list-books");
-    this.contactSection = document.getElementById("contact-container");
-
+    this.form = document.querySelector('form');
+    this.listOfBooks = document.querySelector('.container');
+    this.list = document.getElementById('list');
+    this.addNew = document.getElementById('addNew');
+    this.contact = document.getElementById('contact');
+    this.addNewSction = document.getElementById('add-book');
+    this.listSection = document.getElementById('list-books');
+    this.contactSection = document.getElementById('contact-container');
   }
 
   updateData() {
@@ -18,14 +17,14 @@ class BookManager {
   }
 
   createBooks() {
-    let books = "";
+    let books = '';
     for (let i = 0; i < this.storeData.length; i += 1) {
       books += `
          <section id='books'>
          <article class='books-container'>
          ${this.storeData[i].title} by
           ${this.storeData[i].author}<br>
-          <button class='remove-btn' data-index="${i}">Remove</button>
+          <button class='remove-btn' data-index='${i}'>Remove</button>
           </article>
           </section>
         `;
@@ -39,18 +38,18 @@ class BookManager {
         ${this.createBooks()}
       </p>
     `;
-    
-    this.listOfBooks.querySelectorAll(".remove-btn").forEach((button) => {
-      button.addEventListener("click", (e) => {
-        const index = e.target.getAttribute("data-index");
+
+    this.listOfBooks.querySelectorAll('.remove-btn').forEach((button) => {
+      button.addEventListener('click', (e) => {
+        const index = e.target.getAttribute('data-index');
         this.removeBook(index);
       });
     });
   }
 
   addNewData() {
-    const title = document.querySelector(".title");
-    const author = document.querySelector(".author");
+    const title = document.querySelector('.title');
+    const author = document.querySelector('.author');
     const book = {
       title: title.value,
       author: author.value,
@@ -58,8 +57,8 @@ class BookManager {
     this.storeData.push(book);
     this.updateData();
     this.displayBooks();
-    title.value = "";
-    author.value = "";
+    title.value = '';
+    author.value = '';
   }
 
   removeBook(i) {
@@ -68,5 +67,5 @@ class BookManager {
     this.displayBooks();
   }
 }
-
+/* eslint-disable import/prefer-default-export */
 export const bookManager = new BookManager();

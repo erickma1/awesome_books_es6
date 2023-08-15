@@ -2,7 +2,7 @@ import { DateTime } from './luxon.js';
 
 class TimeDisplayer {
   constructor() {
-    this.dateTimeElement = document.getElementById("datetime");
+    this.dateTimeElement = document.getElementById('datetime');
     this.startUpdating();
   }
 
@@ -10,7 +10,7 @@ class TimeDisplayer {
     this.updateTime();
     setInterval(() => {
       this.updateTime();
-    }, 1000); 
+    }, 1000);
   }
 
   updateTime() {
@@ -18,5 +18,5 @@ class TimeDisplayer {
     this.dateTimeElement.innerHTML = dt.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
   }
 }
-
+/* eslint-disable import/prefer-default-export */
 export const timeDisplayer = new TimeDisplayer();

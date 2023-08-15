@@ -1,21 +1,20 @@
 export default class Bookstore {
   constructor() {
-    this.storeKey = "Added Books";
+    this.storeKey = 'Added Books';
     this.storeData = JSON.parse(localStorage.getItem(this.storeKey)) || [];
-    this.form = document.querySelector("form");
-    this.listOfBooks = document.querySelector(".container");
-    this.list = document.getElementById("list");
-    this.addNew = document.getElementById("addNew");
-    this.contact = document.getElementById("contact");
+    this.form = document.querySelector('form');
+    this.listOfBooks = document.querySelector('.container');
+    this.list = document.getElementById('list');
+    this.addNew = document.getElementById('addNew');
+    this.contact = document.getElementById('contact');
     this.addNewSction = document.getElementById('add-book');
     this.listSection = document.getElementById('list-books');
     this.contactSection = document.getElementById('contact-container');
 
     this.form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        this.addNewData();
-      });
-
+      e.preventDefault();
+      this.addNewData();
+    });
   }
 
   updateData() {
@@ -23,14 +22,14 @@ export default class Bookstore {
   }
 
   createBooks() {
-    let books = "";
+    let books = '';
     for (let i = 0; i < this.storeData.length; i += 1) {
       books += `
              <section id='books'>
              <article class='books-container'>
              ${this.storeData[i].title} by
               ${this.storeData[i].author}<br>
-              <button class='remove-btn' onclick="bookManager.removeBook('${i}')">Remove</button>
+              <button class='remove-btn' onclick='bookManager.removeBook('${i}')'>Remove</button>
               </article>
               </section>
             `;
@@ -39,8 +38,8 @@ export default class Bookstore {
   }
 
   addNewData() {
-    const title = document.querySelector(".title");
-    const author = document.querySelector(".author");
+    const title = document.querySelector('.title');
+    const author = document.querySelector('.author');
     const book = {
       title: title.value,
       author: author.value,
@@ -48,8 +47,8 @@ export default class Bookstore {
     this.storeData.push(book);
     this.updateData();
     this.displayBooks();
-    title.value = "";
-    author.value = "";
+    title.value = '';
+    author.value = '';
   }
 
   removeBook(i) {
